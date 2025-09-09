@@ -11,9 +11,9 @@ export default function Layout({ children }) {
                 {/* Main content */}
                 <div className="flex flex-1 flex-col">
                     {/* Top bar */}
-                    <header className="flex h-14 items-center border-b px-4">
+                    <header className="flex h-14 items-center px-4">
                         {/* Trigger sits here when expanded */}
-                        <SidebarTrigger className="hover:bg-transparent -ml-[54px] z-20 cursor-e-resize" />
+                        <SidebarTrigger className="hover:bg-transparent md:-ml-[54px] z-20 cursor-e-resize" />
                     </header>
 
                     {/* Page content */}

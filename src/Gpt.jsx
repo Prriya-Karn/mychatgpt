@@ -10,6 +10,8 @@ const Gpt = () => {
     const [loading, setLoading] = useState(false);
     const [isHover, setIsHover] = useState(false);
 
+    const api = import.meta.env.VITE_API_KEY;
+
     const handletextinput = (event) => {
         setInput(event.target.value);
     };
@@ -28,7 +30,7 @@ const Gpt = () => {
         setLoading(true);
         try {
             const res = await fetch(
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBfXKrg_F9Gyqiw-QAdaGuRi9I-Zu_h-f4`,
+                `${api}`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
