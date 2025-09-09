@@ -76,7 +76,7 @@ const Gpt = () => {
                             onMouseEnter={() => setIsHover(true)}
                             onMouseLeave={() => setIsHover(false)}
                         >
-                            <p className="text-xs leading-5 bg-[#FAFAFA] px-3 py-1 rounded-3xl cursor-pointer">
+                            <p className="md:text-xs leading-5 bg-[#FAFAFA] px-3 py-1 rounded-3xl cursor-pointer">
                                 {finalInput}
                             </p>
 
@@ -91,7 +91,7 @@ const Gpt = () => {
                     )}
 
                     {/* Response on Left */}
-                    <div className="flex tracking-wide ml-20 mr-20 justify-start min-h-[80px]">
+                    <div className="flex tracking-wide sm:ml-10 sm:mr-10 md:ml-20 md:mr-20 justify-start min-h-[80px]">
                         {loading ? (
                             <div className="flex justify-center items-center w-full">
                                 <Loader className="animate-spin w-8 h-8 text-gray-500" />
@@ -100,7 +100,7 @@ const Gpt = () => {
                             <h1
                                 className={`${res === "Hey, priya. Ready to dive in?"
                                     ? "text-2xl leading-relaxed font-medium"
-                                    : "text-xs leading-5"
+                                        : "md:text-xs leading-5"
                                     } p-4`}
                             >
                                 {res}
@@ -109,7 +109,7 @@ const Gpt = () => {
                     </div>
 
                     {/* Input Box */}
-                    <div className="input-wrapper ml-20 mr-20 relative">
+                    <div className="input-wrapper sm:ml-10 sm:mr-10 md:ml-20 md:mr-20 relative">
                         <Plus className="absolute rounded-full cursor-pointer p-1 ml-1 hover:bg-[#FAFAFA] left-2 top-1/2 transform -translate-y-1/2" />
                         <Input
                             value={input}
