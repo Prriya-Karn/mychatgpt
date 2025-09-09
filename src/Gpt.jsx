@@ -81,7 +81,7 @@ const Gpt = () => {
                             onMouseEnter={() => setIsHover(true)}
                             onMouseLeave={() => setIsHover(false)}
                         >
-                                <p className="md:text-lg leading-5 bg-[#FAFAFA] dark:bg-black px-3 py-1 rounded-3xl cursor-pointer">
+                                <p className="md:text-md leading-5 bg-[#FAFAFA] dark:bg-black px-3 py-1 rounded-3xl cursor-pointer">
                                 {finalInput}
                             </p>
 
@@ -105,7 +105,7 @@ const Gpt = () => {
                             <h1
                                 className={`${res === "Hey, priya. Ready to dive in?"
                                     ? "text-2xl leading-relaxed font-medium"
-                                        : "md:text-lg leading-5"
+                                            : "md:text-md leading-6"
                                     } p-4`}
                             >
                                 {res}
