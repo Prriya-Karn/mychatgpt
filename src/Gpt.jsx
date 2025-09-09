@@ -110,16 +110,16 @@ const Gpt = () => {
 
                     {/* Input Box */}
                     <div className="input-wrapper sm:ml-10 sm:mr-10 md:ml-20 md:mr-20 relative">
-                        <Plus className="absolute w-4 h-4 rounded-full cursor-pointer p-1 ml-1 hover:bg-[#FAFAFA] left-2 top-1/2 transform -translate-y-1/2" />
+                        <Plus className="absolute rounded-full cursor-pointer p-1 ml-1 hover:bg-[#FAFAFA] left-2 top-1/2 transform -translate-y-1/2" />
                         <Input
                             value={input}
                             placeholder="Ask anything"
                             onChange={handletextinput}
-                            className="pr-10 pl-12 py-8 rounded-3xl"
+                            className="pr-10 pl-12 py-6 rounded-3xl"
                             disabled={loading}
                         />
                         <ArrowUp
-                            className={`absolute w-4 h-4 rounded-full p-1 mr-1 text-white right-2 top-1/2 transform -translate-y-1/2 cursor-pointer ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-black"
+                            className={`absolute rounded-full p-1 mr-1 text-white right-2 top-1/2 transform -translate-y-1/2 cursor-pointer ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-black"
                                 }`}
                             onClick={handleSubmit}
                         />
