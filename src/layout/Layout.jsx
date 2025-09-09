@@ -1,5 +1,6 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import ThemeToggle from "@/ThemeToggle"
 
 export default function Layout({ children }) {
     return (
@@ -13,7 +14,9 @@ export default function Layout({ children }) {
                     {/* Top bar */}
                     <header className="flex h-14 items-center px-4">
                         {/* Trigger sits here when expanded */}
+
                         <SidebarTrigger className="hover:bg-transparent md:-ml-[54px] z-20 cursor-e-resize" />
+
                     </header>
 
                     {/* Page content */}

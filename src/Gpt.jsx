@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Input } from "./components/ui/input";
 import { ArrowUp, Loader, Plus, Copy } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
+import ThemeToggle from "./ThemeToggle";
 
 const Gpt = () => {
     const [input, setInput] = useState("");
@@ -66,6 +67,10 @@ const Gpt = () => {
         <Fragment>
             {/* Toast Container */}
             <Toaster position="top-right" reverseOrder={false} />
+            <div className="relative min-h-screen">
+                <div className="absolute -top-30 right-4 z-50">
+                    <ThemeToggle />
+                </div>
 
             <div className="mt-20">
                 <div className="flex flex-col gap-4">
@@ -76,7 +81,7 @@ const Gpt = () => {
                             onMouseEnter={() => setIsHover(true)}
                             onMouseLeave={() => setIsHover(false)}
                         >
-                            <p className="md:text-lg leading-5 bg-[#FAFAFA] px-3 py-1 rounded-3xl cursor-pointer">
+                                <p className="md:text-lg leading-5 bg-[#FAFAFA] dark:bg-black px-3 py-1 rounded-3xl cursor-pointer">
                                 {finalInput}
                             </p>
 
@@ -110,21 +115,22 @@ const Gpt = () => {
 
                     {/* Input Box */}
                     <div className="input-wrapper sm:ml-10 sm:mr-10 md:ml-20 md:mr-20 relative">
-                        <Plus className="absolute rounded-full cursor-pointer p-1 ml-1 hover:bg-[#FAFAFA] left-2 top-1/2 transform -translate-y-1/2" />
+                            <Plus className="absolute  w-7 h-7 rounded-full cursor-pointer p-1 ml-1 hover:bg-[#FAFAFA]  left-2 top-1/2 transform -translate-y-1/2" />
                         <Input
                             value={input}
                             placeholder="Ask anything"
                             onChange={handletextinput}
-                            className="pr-10 pl-12 py-6 rounded-3xl"
+                                className="pr-10  pl-12 py-8 rounded-full"
                             disabled={loading}
                         />
                         <ArrowUp
-                            className={`absolute rounded-full p-1 mr-1 text-white right-2 top-1/2 transform -translate-y-1/2 cursor-pointer ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-black"
+                                className={`absolute w-7 h-7  rounded-full p-1 mr-1 text-white  right-2 top-1/2 transform -translate-y-1/2 cursor-pointer ${loading ? "bg-gray-500 cursor-not-allowed" : "bg-black"
                                 }`}
                             onClick={handleSubmit}
                         />
                     </div>
                 </div>
+            </div>
             </div>
         </Fragment>
     );
