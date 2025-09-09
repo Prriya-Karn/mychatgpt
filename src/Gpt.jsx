@@ -115,7 +115,7 @@ const Gpt = () => {
                             value={input}
                             placeholder="Ask anything"
                             onChange={handletextinput}
-                            className="pr-10 pl-12 py-8 rounded-3xl"
+                            className="pr-10 pl-12 py-6 rounded-3xl"
                             disabled={loading}
                         />
                         <ArrowUp
