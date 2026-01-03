@@ -11,7 +11,15 @@ const Gpt = () => {
     const [loading, setLoading] = useState(false);
     const [isHover, setIsHover] = useState(false);
 
-    const api = import.meta.env.VITE_API_KEY;
+   const API_KEY = import.meta.env.VITE_API_KEY;
+
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+
+
+
+console.log("KEY:", API_KEY);
+console.log("URL:", API_URL);
+
 
     const handletextinput = (event) => {
         setInput(event.target.value);
@@ -28,34 +36,33 @@ const Gpt = () => {
     };
 
     const data = async (prompt) => {
+        if (loading) return;
         setLoading(true);
         try {
-            const res = await fetch(
-                `${api}`,
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        contents: [
-                            {
-                                parts: [
-                                    { text: prompt },
-                                ],
-                            },
-                        ],
-                    }),
-                }
-            );
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: prompt }] }],
+                }),
+            });
 
-            const result = await res.json();
-            setRes(result.candidates[0].content.parts[0].text);
+            console.log(response)
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const result = await response.json();
+            setRes(result?.candidates?.[0]?.content?.parts?.[0]?.text || "No response");
         } catch (error) {
-            console.error("Error fetching Gemini API:", error);
-            setRes("Oops! Something went wrong.");
+            console.error(error);
+            setRes("Rate limit reached. Please wait a moment.");
         } finally {
             setLoading(false);
         }
     };
+
 
     useEffect(() => {
         if (finalInput) {

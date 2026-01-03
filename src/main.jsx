@@ -5,10 +5,8 @@ import App from './App.jsx'
 import { ThemeProvider } from 'next-themes'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ThemeProvider attribute="class" defaultTheme="system">
-      <App />
-    </ThemeProvider>
+  <ThemeProvider attribute="class" defaultTheme="system">
+    <App />
+  </ThemeProvider>
 
-  </StrictMode>,
 )
